@@ -6,20 +6,20 @@ export default defineConfig({
   server: {
     port: 5173,
     strictPort: false,
-    hmr: {
-      protocol: 'ws',
-      host: 'localhost',
-      port: 5173,
-    }
   },
   build: {
     outDir: 'dist',
     sourcemap: false,
     minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
       },
+    },
+  },
+  resolve: {
+    alias: {
+      '@': '/src',
     },
   },
 })
